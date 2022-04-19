@@ -100,6 +100,25 @@ ruleEUR = Rule
   , prod = \_ -> Just . Token AmountOfMoney $ currencyOnly EUR
   }
 
+ruleBitcoin :: Rule
+ruleBitcoin = Rule
+  { name = "BTC"
+  , pattern =
+    [ regex "bitcoin(ie|y|em|ów|o(m|wi)|a(ch|mi)?)?"
+    ]
+  , prod = \_ -> Just . Token AmountOfMoney $ currencyOnly BTC
+  }
+
+ruleEthereum :: Rule
+ruleEthereum = Rule
+  { name = "ETH"
+  , pattern =
+    [ regex "eth(ereum)?"
+    ]
+  , prod = \_ -> Just . Token AmountOfMoney $ currencyOnly ETH
+  }
+
+
 ruleIntersectAndXCents :: Rule
 ruleIntersectAndXCents = Rule
   { name = "intersect (and X cents)"
@@ -320,5 +339,7 @@ rules =
   , rulePounds
   , rulePrecision
   , ruleZloty
+  , ruleBitcoin
+  , ruleEthereum
   , ruleTysiac
   ]

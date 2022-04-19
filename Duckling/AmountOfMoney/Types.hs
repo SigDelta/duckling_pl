@@ -40,6 +40,7 @@ data Currency
   | BGN
   | BRL
   | BYN
+  | BTC
   | CAD
   | CHF
   | CNY
@@ -47,6 +48,7 @@ data Currency
   | DKK
   | EGP
   | EUR
+  | ETH
   | GBP
   | HKD
   | HRK
@@ -98,6 +100,7 @@ instance ToJSON Currency where
   toJSON BGN     = "BGN"
   toJSON BRL     = "BRL"
   toJSON BYN     = "BYN"
+  toJSON BTC     = "BTC"
   toJSON CAD     = "CAD"
   toJSON CHF     = "CHF"
   toJSON CNY     = "CNY"
@@ -105,6 +108,7 @@ instance ToJSON Currency where
   toJSON DKK     = "DKK"
   toJSON EGP     = "EGP"
   toJSON EUR     = "EUR"
+  toJSON ETH     = "ETH"
   toJSON GBP     = "GBP"
   toJSON HKD     = "HKD"
   toJSON HRK     = "HRK"
