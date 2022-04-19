@@ -17,4 +17,5 @@ allDimensions =
   , Seal Numeral
   , Seal Ordinal
   , Seal Time
+  , Seal AmountOfMoney
   ]

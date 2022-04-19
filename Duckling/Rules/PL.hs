@@ -17,6 +17,7 @@ module Duckling.Rules.PL
 import Duckling.Dimensions.Types
 import Duckling.Locale
 import Duckling.Types
+import qualified Duckling.AmountOfMoney.PL.Rules as AmountOfMoney
 import qualified Duckling.Duration.PL.Rules as Duration
 import qualified Duckling.Numeral.PL.Rules as Numeral
 import qualified Duckling.Ordinal.PL.Rules as Ordinal
@@ -31,7 +32,7 @@ localeRules region (Seal (CustomDimension dim)) = dimLocaleRules region dim
 localeRules _ _ = []
 
 langRules :: Seal Dimension -> [Rule]
-langRules (Seal AmountOfMoney) = []
+langRules (Seal AmountOfMoney) = AmountOfMoney.rules
 langRules (Seal CreditCardNumber) = []
 langRules (Seal Distance) = []
 langRules (Seal Duration) = Duration.rules
@@ -47,3 +48,4 @@ langRules (Seal TimeGrain) = TimeGrain.rules
 langRules (Seal Url) = []
 langRules (Seal Volume) = []
 langRules (Seal (CustomDimension dim)) = dimLangRules PL dim
+
