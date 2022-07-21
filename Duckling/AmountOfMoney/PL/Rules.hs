@@ -46,7 +46,7 @@ ruleZloty :: Rule
 ruleZloty = Rule
   { name = "złoty"
   , pattern =
-    [ regex "(z[łl](\\.|ot(y(ch|mi)?|e(go|mu)?)))"
+    [ regex "(z[łl](\\.|ot(y(ch|mi)?|e(go|mu)?))?)"
     ]
   , prod = \_ -> Just . Token AmountOfMoney $ currencyOnly PLN 
   }
