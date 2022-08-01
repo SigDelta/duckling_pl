@@ -46,7 +46,7 @@ ruleZloty :: Rule
 ruleZloty = Rule
   { name = "złoty"
   , pattern =
-    [ regex "(z[łl](\\.|ot(y(ch|mi)?|e(go|mu)?))?)"
+    [ regex "((polski(ch|m(i)?|e(go|mu)?)?\\s+)?(z[łl](\\.|ot(y(ch|mi)?|e(go|mu)?))?))(\\s+(polski(ch|m(i)?|e(go|mu)?)?))?|(ziko)|(zyl(i|a(mi|ch)?|ów|o(m|wi)|e(m)?|u)?)|(z[łl]ocisz(u|y|e(m)?|a(mi|ch)?|ów|o(m|wi))?)"
     ]
   , prod = \_ -> Just . Token AmountOfMoney $ currencyOnly PLN 
   }
@@ -95,7 +95,7 @@ ruleEUR :: Rule
 ruleEUR = Rule
   { name = "€"
   , pattern =
-    [ regex "(eur(o?)|EUR(O?))"
+    [ regex "(eur(o?)|EUR(O?)|e[lłu]r(o|a(s|cz)(ek|k?(y|ów|u|i(em?)?|i?(em)|e|o(m|wi)|a(mi|ch)?))?))"
     ]
   , prod = \_ -> Just . Token AmountOfMoney $ currencyOnly EUR
   }
