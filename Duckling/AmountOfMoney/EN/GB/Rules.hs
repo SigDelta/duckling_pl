@@ -50,6 +50,19 @@ ruleGrand = Rule
       _ -> Nothing
   }
 
+ruleQuid :: Rule
+ruleQuid = Rule
+  { name = "<amount> quid"
+  , pattern =
+    [ Predicate isPositive
+    , regex "quid"
+    ]
+  , prod = \case
+      (Token Numeral TNumeral.NumeralData{TNumeral.value = v}:_)
+        -> Just . Token AmountOfMoney . withValue v $ currencyOnly GBP
+      _ -> Nothing
+  }
+
 ruleDollarCoin :: Rule
 ruleDollarCoin = Rule
   { name = "dollar coin"
@@ -68,4 +81,5 @@ rules =
   [ ruleAGrand
   , ruleGrand
   , ruleDollarCoin
+  , ruleQuid
   ]
